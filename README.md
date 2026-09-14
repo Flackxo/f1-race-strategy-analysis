@@ -1,24 +1,70 @@
 # F1 Race Strategy & Tire Performance Analysis
 
-A data analysis project exploring Formula 1 race strategy, tire performance, stint length, pit stops, and lap-time trends using real race data.
+## Overview
+This project analyzes race strategy, tire usage, stint performance, and finishing outcomes from the 2025 Bahrain Grand Prix.
 
-## Project Goals
+The project uses Python for data extraction and cleaning, MySQL for analysis, and Tableau for visualization.
 
-- Retrieve Formula 1 race data from the OpenF1 API
-- Clean and transform race data using Python and pandas
-- Store structured data in a SQL database
-- Analyze tire performance and race strategy
-- Build an interactive dashboard to communicate findings
-
-## Technologies
-
+## Tools Used
 - Python
 - pandas
 - OpenF1 API
-- SQL / MySQL
-- Tableau
-- Git & GitHub
+- MySQL
+- SQL
+- Tableau Public
+- Git / GitHub
 
-## Project Status
+## Data Pipeline
+OpenF1 API
+→ Raw JSON
+→ Python cleaning and transformation
+→ Processed CSV
+→ MySQL
+→ SQL analysis
+→ Tableau dashboard
 
-Currently in development.
+## Data Cleaning
+The lap-level dataset was filtered to remove:
+- Lap 1
+- pit-in laps
+- pit-out laps
+- Safety Car laps
+- records with missing lap duration
+
+Driver, team, tire compound, stint number, tire age, and race result data were then merged into the cleaned lap dataset.
+
+## Analysis
+The project explored:
+- average lap time by tire compound
+- lap time by tire age
+- stint-relative degradation
+- tire degradation slope
+- strategy sequence by driver
+- strategy pattern vs finishing position
+
+## Key Findings
+- Hard tires recorded the lowest raw average lap time in the cleaned dataset, though this should not be interpreted as the Hard compound being inherently fastest because fuel load and race phase differ.
+- Medium and Hard compounds showed positive stint-relative lap-time trends as tire age increased.
+- Soft tire degradation was less clear and more affected by race context and smaller sample sizes.
+- The Soft → Medium → Medium strategy was used by both Piastri and Norris, who finished P1 and P3.
+- Strategy outcomes showed association with finishing position, but should not be interpreted as causal.
+
+## Dashboard
+Tableau Public dashboard:
+[ADD YOUR TABLEAU LINK HERE]
+
+## Project Structure
+```text
+f1-strategy-analysis/
+├── data/
+│   ├── raw/
+│   └── processed/
+├── src/
+│   ├── extract.py
+│   └── transform.py
+├── sql/
+├── dashboard/
+│   └── screenshots/
+├── README.md
+├── requirements.txt
+└── .gitignore

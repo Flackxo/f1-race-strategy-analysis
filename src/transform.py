@@ -288,3 +288,48 @@ clean_laps_df.to_csv(
 
 print(f"\nSaved processed dataset to {output_file}")
 print("Final dataset shape:", clean_laps_df.shape)
+
+sql_columns = [
+    "session_key",
+    "driver_number",
+    "lap_number",
+    "lap_duration",
+    "is_pit_out_lap",
+    "is_pit_in_lap",
+    "stint_number",
+    "compound",
+    "tire_age",
+    "name_acronym",
+    "full_name",
+    "team_name",
+    "position",
+    "points",
+    "dnf",
+    "dns",
+    "dsq"
+]
+
+sql_export_df = clean_laps_df[sql_columns].copy()
+
+sql_export_df["position"] = sql_export_df["position"].fillna(0)
+
+boolean_columns = [
+    "is_pit_out_lap",
+    "is_pit_in_lap",
+    "dnf",
+    "dns",
+    "dsq"
+]
+
+for column in boolean_columns:
+    sql_export_df[column] = sql_export_df[column].astype(int)
+
+sql_output_file = PROCESSED_DATA_DIR / "clean_laps_sql.csv"
+
+sql_export_df.to_csv(
+    sql_output_file,
+    index=False
+)
+
+print(f"Saved SQL-ready dataset to {sql_output_file}")
+print("SQL export shape:", sql_export_df.shape)
