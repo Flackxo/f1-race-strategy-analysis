@@ -51,7 +51,7 @@ The project explored:
 
 ## Dashboard
 Tableau Public dashboard:
-[ADD YOUR TABLEAU LINK HERE]
+https://public.tableau.com/views/F1RaceStrategyTirePerformance/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ## Project Structure
 ```text
