@@ -50,6 +50,8 @@ The project explored:
 - Strategy outcomes showed association with finishing position, but should not be interpreted as causal.
 
 ## Dashboard
+<img width="1512" height="918" alt="F1_strategy_analysis" src="https://github.com/user-attachments/assets/17b6a357-d708-48a2-87b2-ab579ce86c5d" />
+
 Tableau Public dashboard:
 https://public.tableau.com/views/F1RaceStrategyTirePerformance/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
